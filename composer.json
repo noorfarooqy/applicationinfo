@@ -1,0 +1,35 @@
+{
+    "name": "drongotech/applicationinfo",
+    "description": "Application informtion management package",
+    "type": "library",
+    "require": {
+        "drongotech/response_parser": "^1.0"
+    },
+    "require-dev": {
+        "laravel/laravel": "^9.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Drongotech\\Applicationinfo\\": "src/",
+            "Drongotech\\Applicationinfo\\Services\\": "services/",
+            "Drongotech\\Applicationinfo\\Controllers\\": "controllers/",
+            "Drongotech\\Applicationinfo\\Models\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Noor Abdi",
+            "email": "57824560+noorfarooqy@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Drongotech\\Applicationinfo\\ApplicationinfoServiceProvider"
+            ]
+        }
+    }
+}
