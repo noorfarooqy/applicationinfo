@@ -109,6 +109,7 @@
             },
             successMessage(message) {
                 console.log(message);
+                
                 swal({
                     title: "Success",
                     text: message,
