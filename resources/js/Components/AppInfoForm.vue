@@ -93,7 +93,7 @@
                 if (this.is_loading) return;
                 this.is_loading = true;
                 this.server.setRequest(this.appinfo);
-                this.server.PostRequest('/appinfo/api/update', this.updatedApp, this.errorMessage)
+                this.server.PostRequest('/admin/appinfo/api/update', this.updatedApp, this.errorMessage)
             },
             
             updatedApp(data) {
@@ -102,7 +102,7 @@
                 this.successMessage('Update application information');
             },
             getAppInfo(){
-                this.server.GetRequest('/appinfo/api/info', this.setAppInfo, this.errorMessage);
+                this.server.GetRequest('/admin/appinfo/api/info', this.setAppInfo, this.errorMessage);
             },
             setAppInfo(data){
                 this.appinfo = data;

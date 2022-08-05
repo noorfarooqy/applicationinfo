@@ -53,7 +53,7 @@ export default {
             formdata.append('app_logo',logo.target.files[0]);
             formdata.append('logo_type', logo_type);
             this.server.setRequest(formdata);
-            this.server.PostRequest('/appinfo/api/logo', this.updatedLogo, this.errorMessage);
+            this.server.PostRequest('/admin/appinfo/api/logo', this.updatedLogo, this.errorMessage);
         },
         updatedLogo(data){
             this.successMessage('Updated the logo successfully');
