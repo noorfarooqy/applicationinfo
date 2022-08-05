@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e367d369ec1d22cb671e263ceba872ee",
+    "content-hash": "8dfd13e223991a016dea15d2485a4db1",
     "packages": [
         {
             "name": "drongotech/response_parser",
