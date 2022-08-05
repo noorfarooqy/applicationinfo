@@ -29,7 +29,7 @@
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="{{$sub_menu['route']}}">Customers</a></li>
                         @foreach ($sub_menu['sub_menu'] as $sub_submenu)
-                        <li><a href="{{$sub_submenu['route']}}" class="slide-item"> {{$sub_submenu['name']}} </a></li>
+                        <li><a href="{{route($sub_submenu['route'])}}" class="slide-item"> {{$sub_submenu['name']}} </a></li>
                         @endforeach
                     </ul>
                 </li>
