@@ -3,6 +3,7 @@ namespace Drongotech\Applicationinfo\Services;
 
 use Drongotech\Applicationinfo\Models\ApplicationinfoModel;
 use Drongotech\ResponseParser\DefaultService;
+use Illuminate\Support\Facades\Artisan;
 
 class AppinfoServices extends DefaultService
 {
@@ -90,6 +91,52 @@ class AppinfoServices extends DefaultService
         $is_json = $this->ResponseType();
 
         $appinfo = ApplicationinfoModel::get()->first();
+
+        return $is_json ? $this->Parse(false, 'success', $appinfo) : $appinfo;
+    }
+
+    public function updateMaintenanceStatus($request)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+        $this->rules = [
+            'secret_code' => 'nullable|string|min:1|max:20',
+            'status' => 'required|integer|in:1,2',
+        ];
+
+        $this->CustomValidate();
+
+        if ($this->has_failed) {
+            return $is_json ? $this->Parse(true, $this->getMessage()) : false;
+        }
+
+        $data = $this->ValidatedData();
+        $is_down = file_exists(storage_path('framework/down'));
+        if ($is_down && $data['status'] == 0) {
+            $this->setError($m = 'The maintenance mode is already on');
+            return $is_json ? $this->_422Response($m) : false;
+        } else if (!$is_down && $data['status'] == 1) {
+            $this->setError($m = 'The maintenance mode is already off');
+            return $is_json ? $this->_422Response($m) : false;
+        }
+
+        if ($data['status'] == 1) {
+            Artisan::call('down --secret=' . $data['secret_code']);
+        } else {
+            Artisan::call(0);
+        }
+        $status = file_exists(storage_path('framework/down'));
+        $appinfo = ['is_on' => $status];
+        return $is_json ? $this->Parse(false, 'success', $appinfo) : $appinfo;
+    }
+
+    public function getMaintenanceStatus($request)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+
+        $status = file_exists(storage_path('framework/down'));
+        $appinfo = ['is_on' => $status];
 
         return $is_json ? $this->Parse(false, 'success', $appinfo) : $appinfo;
     }
