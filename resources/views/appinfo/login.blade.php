@@ -67,39 +67,50 @@
                                     <div class="tabs-menu1">
                                         <!-- Tabs -->
                                         <ul class="nav panel-tabs">
-                                            <li class="mx-0"><a href="#tab5" class="active" data-bs-toggle="tab">Email</a></li>
+                                            <li class="mx-0"><a href="#tab5" class="active"
+                                                    data-bs-toggle="tab">Email</a></li>
                                             <li class="mx-0"><a href="#tab6" data-bs-toggle="tab">Mobile</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="panel-body tabs-menu-body p-0 pt-5">
                                     <div class="tab-content">
-                                        <form method="POST" action="/login" class="tab-pane active" id="tab5">
-                                            <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 border-start-0 form-control ms-0" name="email" type="email" placeholder="Email">
+                                        <div  class="tab-pane active" id="tab5">
+                                            <form action="/login" method="post">
+                                                <div class="wrap-input100 validate-input input-group"
+                                                    data-bs-validate="Valid email is required: ex@abc.xyz">
+                                                    <a href="javascript:void(0)"
+                                                        class="input-group-text bg-white text-muted">
+                                                        <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
+                                                    </a>
+                                                    <input class="input100 border-start-0 form-control ms-0"
+                                                        name="email" type="email" placeholder="Email">
+                                                </div>
+                                                <div class="wrap-input100 validate-input input-group"
+                                                    id="Password-toggle">
+                                                    <a href="javascript:void(0)"
+                                                        class="input-group-text bg-white text-muted">
+                                                        <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
+                                                    </a>
+                                                    <input class="input100 border-start-0 form-control ms-0"
+                                                        type="password" name="password" placeholder="Password">
+                                                </div>
+                                                <div class="text-end pt-4">
+                                                    <p class="mb-0"><a href="/forgot" class="text-primary ms-1">Forgot
+                                                            Password?</a></p>
+                                                </div>
+                                                <div class="container-login100-form-btn">
+                                                    <input type="submit" value="Login"
+                                                        class="login100-form-btn btn-primary">
+                                                </div>
+                                            </form>
+                                            </d>
+                                            <div class="tab-pane" id="tab6">
+                                                Comming soon
                                             </div>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                                <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
-                                                    <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
-                                                </a>
-                                                <input class="input100 border-start-0 form-control ms-0" type="password" name="password" placeholder="Password">
-                                            </div>
-                                            <div class="text-end pt-4">
-                                                <p class="mb-0"><a href="/forgot" class="text-primary ms-1">Forgot Password?</a></p>
-                                            </div>
-                                            <div class="container-login100-form-btn">
-                                                <input type="submit" value="Login" class="login100-form-btn btn-primary">
-                                            </div>
-                                        </form>
-                                        <div class="tab-pane" id="tab6">
-                                            Comming soon
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
                         </form>
                     </div>
