@@ -52,6 +52,9 @@ class ApplicationinfoServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations' => database_path('migrations'),
         ], 'appinfo-migrations');
+        $this->publishes([
+            __DIR__ . '/../seeders' => database_path('seeders'),
+        ], 'appinfo-seeders');
 
     }
 }
