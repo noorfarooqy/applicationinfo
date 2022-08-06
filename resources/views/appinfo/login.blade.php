@@ -91,30 +91,11 @@
                                                 <p class="mb-0"><a href="/forgot" class="text-primary ms-1">Forgot Password?</a></p>
                                             </div>
                                             <div class="container-login100-form-btn">
-                                                <a href="index.html" class="login100-form-btn btn-primary">
-                                                        Login
-                                                </a>
+                                                <input type="submit" value="Login" class="login100-form-btn btn-primary">
                                             </div>
-                                            <div class="d-flex justify-content-center">
-                                                <a href="javascript:void(0)">
-                                                    <div class="social-login me-4 text-center">
-                                                        <i class="fa fa-google"></i>
-                                                    </div>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <div class="social-login me-4 text-center">
-                                                        <i class="fa fa-facebook"></i>
-                                                    </div>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <div class="social-login text-center">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </fo>
+                                        </form>
                                         <div class="tab-pane" id="tab6">
-                                            Coming soon...
+                                            Comming soon
                                         </div>
                                     </div>
                                 </div>
