@@ -16,9 +16,8 @@
             <div class="card-header">
                 Update application information
             </div>
-            <app-info-form></app-info-form>
+            <app-status-form></app-status-form>
         </div>
-       <app-logo-form></app-logo-form>
     </div>
 </div>
 @endsection
