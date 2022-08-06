@@ -3,6 +3,10 @@
 use Drongotech\Applicationinfo\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/login', function () {
+    return view('appinfo::appinfo.login');
+});
+
 Route::group(['middleware' => config('appinfo.middleware_auth')], function () {
     Route::prefix('/admin')->group(function () {
         Route::prefix('/appinfo')->group(function () {
