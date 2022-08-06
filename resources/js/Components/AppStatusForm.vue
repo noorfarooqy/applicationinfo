@@ -5,7 +5,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form-label">Secret code</label>
                     <input type="text" class="form-control" id="application_name" placeholder="Application name"
-                        autocomplete="application_name" v-model="appinfo.app_name">
+                        autocomplete="application_name" v-model="appstatus.secret_code">
                 </div>
             </div>
             <div class="col">
