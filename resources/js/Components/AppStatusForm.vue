@@ -8,11 +8,14 @@
                         autocomplete="application_name" v-model="appstatus.secret_code">
                 </div>
             </div>
+
+        </div>
+        <div class="row">
+
             <div class="col">
                 <button class="btn btn-primary" v-if="is_on" @click="submitForm(0)">Turn off maintenance mode</button>
                 <button class="btn btn-primary" v-else @click="submitForm(1)">Turn on maintenance mode</button>
             </div>
-
         </div>
     </div>
 </template>
@@ -45,7 +48,7 @@ export default {
         submitForm(status = 1) {
             if (this.is_loading) return;
             this.is_loading = true;
-            this.appstatus.is_on = status == 1;
+            this.appstatus.status_code = status == 1;
             this.server.setRequest(this.appstatus);
             this.server.PostRequest('/admin/appinfo/api/appstatus', this.updatedApp, this.errorMessage)
         },

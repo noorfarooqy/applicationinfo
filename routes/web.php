@@ -15,7 +15,7 @@ Route::group(['middleware' => config('appinfo.middleware_auth')], function () {
                 Route::post('/update', [ApplicationController::class, 'apiUpdate'])->name('appinfo.api.update');
                 Route::post('/logo', [ApplicationController::class, 'apiUpdateLogo'])->name('appinfo.api.update');
                 Route::get('/status', [ApplicationController::class, 'apiGetMaintenanceStatus'])->name('appinfo.api.update');
-                Route::post('/status', [ApplicationController::class, 'apiUpdateMaintenanceStatus'])->name('appinfo.api.update');
+                Route::post('/appstatus', [ApplicationController::class, 'apiUpdateMaintenanceStatus'])->name('appinfo.api.update');
             });
 
         });

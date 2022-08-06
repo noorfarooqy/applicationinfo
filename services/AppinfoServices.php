@@ -101,7 +101,7 @@ class AppinfoServices extends DefaultService
         $is_json = $this->ResponseType();
         $this->rules = [
             'secret_code' => 'nullable|string|min:1|max:20',
-            'status' => 'required|integer|in:1,2',
+            'status_code' => 'required|bool',
         ];
 
         $this->CustomValidate();
@@ -112,18 +112,18 @@ class AppinfoServices extends DefaultService
 
         $data = $this->ValidatedData();
         $is_down = file_exists(storage_path('framework/down'));
-        if ($is_down && $data['status'] == 0) {
+        if ($is_down && $data['status_code'] == 1) {
             $this->setError($m = 'The maintenance mode is already on');
             return $is_json ? $this->_422Response($m) : false;
-        } else if (!$is_down && $data['status'] == 1) {
+        } else if (!$is_down && $data['status_code'] == 0) {
             $this->setError($m = 'The maintenance mode is already off');
             return $is_json ? $this->_422Response($m) : false;
         }
 
-        if ($data['status'] == 1) {
+        if ($data['status_code'] == true) {
             Artisan::call('down --secret=' . $data['secret_code']);
         } else {
-            Artisan::call(0);
+            Artisan::call('up');
         }
         $status = file_exists(storage_path('framework/down'));
         $appinfo = ['is_on' => $status];
