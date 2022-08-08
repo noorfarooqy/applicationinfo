@@ -77,6 +77,7 @@
                                     <div class="tab-content">
                                         <div  class="tab-pane active" id="tab5">
                                             <form action="/login" method="post">
+                                                @csrf
                                                 <div class="wrap-input100 validate-input input-group"
                                                     data-bs-validate="Valid email is required: ex@abc.xyz">
                                                     <a href="javascript:void(0)"
