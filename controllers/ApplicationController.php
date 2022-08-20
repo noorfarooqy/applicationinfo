@@ -6,16 +6,6 @@ use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
-    public function appInfo(Request $request)
-    {
-        return view('appinfo::appinfo.index');
-    }
-
-    public function appStatus(Request $request)
-    {
-        return view('appinfo::appinfo.status');
-    }
-
     public function apiUpdate(Request $request, AppinfoServices $appinfoServices)
     {
         return $appinfoServices->updateOrCreateAppInfo($request);

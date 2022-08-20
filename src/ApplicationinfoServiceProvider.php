@@ -9,7 +9,6 @@ class ApplicationinfoServiceProvider extends ServiceProvider
     {
         $this->loadRequired();
         $this->publishConfig();
-        $this->publishAssets();
         $this->publishMigrations();
 
     }
@@ -31,21 +30,7 @@ class ApplicationinfoServiceProvider extends ServiceProvider
             __DIR__ . '/../config/appinfo.php' => config_path('appinfo.php'),
         ], 'appinfo-config');
     }
-    protected function publishViews()
-    {
-        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/appinfo')], 'appinfo-views');
-    }
 
-    protected function publishAssets()
-    {
-        $this->publishes([
-            __DIR__ . '/../public/build' => public_path('build'),
-        ], 'appinfo-build');
-        $this->publishes([
-            __DIR__ . '/../public/assets' => public_path('appinfo/assets'),
-        ], 'appinfo-assets');
-
-    }
 
     protected function publishMigrations()
     {
