@@ -26,6 +26,6 @@ class AppApiProviders extends Model
 
     public function apiKeys()
     {
-        return $this->hasMany(AppApiKeys::class, 'provider_id');
+        return $this->hasMany(AppApiKeys::class, 'id', 'provider_id');
     }
 }
