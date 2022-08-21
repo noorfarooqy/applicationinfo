@@ -41,9 +41,9 @@ class ApplicationApiKeysServices extends DefaultService
             'api_id' => 'nullable|integer|exists:app_api_keys,id',
             'provider_id' => 'required|integer|exists:app_api_providers,id',
             'provider_api_key' => 'required|string|1049',
-            'provider_api_secret' => 'nullable|string|1049',
-            'provider_public_key' => 'nullable|string|10499',
-            'provider_private_key' => 'nullable|string|10499',
+            'provider_api_secret' => 'nullable|string|max:1049',
+            'provider_public_key' => 'nullable|string|max:10499',
+            'provider_private_key' => 'nullable|string|max:10499',
         ];
 
         $this->CustomValidate();
