@@ -83,4 +83,45 @@ class ApplicationApiKeysServices extends DefaultService
 
         return $is_json ? $this->Parse(false, 'success', $api_providers) : $api_providers;
     }
+
+    public function deleteApiKey($request, $api_key)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+
+        $api_key = AppApiKeys::find($api_key);
+        if (!$api_key) {
+            $this->setError($m = "Api key not found");
+            return $is_json ? $this->_404Response($m) : false;
+        }
+
+        try {
+            $deleted = $api_key->delete();
+            return $is_json ? $this->Parse(false, 'success', $deleted) : $deleted;
+        } catch (\Throwable$th) {
+            return $is_json ? $this->Parse(true, $th->getMessage()) : false;
+        }
+
+    }
+    public function updateApiKeyStatus($request, $api_key)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+
+        if (!in_array($request->action, [1, 0])) {
+            $this->setError($m = "Invalid action provided");
+            return $is_json ? $this->_422Response($m) : false;
+        }
+        $api_key = AppApiKeys::find($api_key);
+        if (!$api_key) {
+            $this->setError($m = "Api key not found");
+            return $is_json ? $this->_404Response($m) : false;
+        }
+
+        $api_key->is_active = $request->action;
+        $api_key->save();
+
+        return $is_json ? $this->Parse(false, 'success', $api_key) : $api_key;
+
+    }
 }
