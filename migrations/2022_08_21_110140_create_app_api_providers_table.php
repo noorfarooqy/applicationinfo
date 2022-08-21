@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('provider_name');
             $table->string('provision_type')->nullable();
+            $table->string('provider_location')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

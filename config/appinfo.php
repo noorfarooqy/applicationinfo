@@ -34,4 +34,12 @@ return [
         ],
     ],
     'middleware_auth' => ['auth'],
+    'api_providers' => [
+        [
+            'name' => 'Africa\'s Talking',
+            'location' => 'Kenya',
+            'type' => 'SMS notifications',
+            'is_active' => true,
+        ],
+    ],
 ];

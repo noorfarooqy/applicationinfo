@@ -15,6 +15,7 @@ class ApplicationApiKeysServices extends DefaultService
         $this->rules = [
             'provider_name' => 'required|string|min:2:max:124',
             'provider_type' => 'nullable|string|min:2:max:124',
+            'provider_location' => 'nullable|string|min:2:max:124',
         ];
 
         $this->CustomValidate();
@@ -56,7 +57,7 @@ class ApplicationApiKeysServices extends DefaultService
         $data['last_updated_by'] = $request->user()->id;
 
         $apiKeysModel = new AppApiKeys();
-        $api_key = $apiKeysModel->updateOrCreateProvider($data);
+        $api_key = $apiKeysModel->updateOrCreateApikeys($data);
         if ($api_key) {
             return $is_json ? $this->Parse(false, 'success', $api_key) : $api_key;
         }
