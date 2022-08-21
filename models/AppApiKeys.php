@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Models;
+namespace Drongotech\Applicationinfo\Models;
 
 use Drongotech\ResponseParser\Traits\ErrorParser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

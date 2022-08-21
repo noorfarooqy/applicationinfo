@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\AppApiProviders;
+use Drongotech\Applicationinfo\Models\AppApiProviders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

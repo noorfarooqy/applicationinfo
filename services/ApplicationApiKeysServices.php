@@ -1,8 +1,8 @@
 <?php
 namespace Drongotech\Applicationinfo\Services;
 
-use App\Models\AppApiKeys;
-use App\Models\AppApiProviders;
+use Drongotech\Applicationinfo\Models\AppApiKeys;
+use Drongotech\Applicationinfo\Models\AppApiProviders;
 use Drongotech\ResponseParser\DefaultService;
 
 class ApplicationApiKeysServices extends DefaultService
