@@ -10,7 +10,6 @@ class AppApiKeys extends Model
     use HasFactory;
     use ErrorParser;
     protected $guarded = ['app_id'];
-    protected $table = "app_info";
     protected static $failed_to_update_or_create = " Failed to update api keys. Contact admin for assistance ";
 
     public function updateOrCreateApikeys($data)
