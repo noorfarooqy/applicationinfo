@@ -124,4 +124,31 @@ class ApplicationApiKeysServices extends DefaultService
         return $is_json ? $this->Parse(false, 'success', $api_key) : $api_key;
 
     }
+
+    public function getApiKeyById($request, $id)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+
+        $api_key = AppApiKeys::where('id', $id)->with('apiKeyProvider')->get()->first();
+        if (!$api_key) {
+            $this->setError($m = "API Key not found");
+            return $is_json ? $this->_404Response($m) : false;
+        }
+
+        return $is_json ? $this->Parse(false, 'success', $api_key) : false;
+    }
+    public function getProviderById($request, $id)
+    {
+        $this->request = $request;
+        $is_json = $this->ResponseType();
+
+        $provider = AppApiProviders::where('id', $id)->with('apiKeys')->get()->first();
+        if (!$provider) {
+            $this->setError($m = "API key provider Key not found");
+            return $is_json ? $this->_404Response($m) : false;
+        }
+
+        return $is_json ? $this->Parse(false, 'success', $provider) : false;
+    }
 }
