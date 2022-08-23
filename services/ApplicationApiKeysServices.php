@@ -136,7 +136,7 @@ class ApplicationApiKeysServices extends DefaultService
             return $is_json ? $this->_404Response($m) : false;
         }
 
-        return $is_json ? $this->Parse(false, 'success', $api_key) : false;
+        return $is_json ? $this->Parse(false, 'success', $api_key) : $api_key;
     }
     public function getProviderById($request, $id)
     {
@@ -149,6 +149,6 @@ class ApplicationApiKeysServices extends DefaultService
             return $is_json ? $this->_404Response($m) : false;
         }
 
-        return $is_json ? $this->Parse(false, 'success', $provider) : false;
+        return $is_json ? $this->Parse(false, 'success', $provider) : $provider;
     }
 }
